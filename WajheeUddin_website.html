@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wajhee Uddin — Medical Technology Engineer</title>
+<style>
+:root {
+  --db: #1B3A5C; --ab: #2E6DA4; --te: #0E7490;
+  --lb: #B0C8E0; --lbg: #F0F4F9; --mg: #6B7280;
+  --txt: #1F2937; --gr: #10B981; --wh: #ffffff;
+  --border: #E5E7EB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;color:var(--txt);background:#f8fafc;line-height:1.6}
+
+/* NAV */
+nav{background:var(--db);padding:0 2rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav-brand{color:white;font-weight:700;font-size:1.1rem;letter-spacing:.5px}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--lb);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:white}
+.lang-toggle{display:flex;gap:.4rem}
+.lang-btn{background:transparent;border:1.5px solid var(--lb);color:var(--lb);padding:3px 10px;border-radius:999px;cursor:pointer;font-size:.8rem;transition:all .2s}
+.lang-btn.active,.lang-btn:hover{background:var(--ab);border-color:var(--ab);color:white}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--db) 0%,#264e7a 60%,var(--ab) 100%);color:white;padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{position:relative;max-width:800px;margin:0 auto}
+.hero-photo{width:130px;height:130px;border-radius:50%;border:4px solid rgba(255,255,255,.3);object-fit:cover;margin-bottom:1.25rem;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.hero h1{font-size:2.4rem;font-weight:700;letter-spacing:1px;margin-bottom:.4rem}
+.hero .subtitle{color:var(--lb);font-size:1.05rem;margin-bottom:1.2rem}
+.hero .contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-bottom:1.5rem}
+.contact-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;padding:.3rem .85rem;border-radius:999px;font-size:.82rem;text-decoration:none;transition:background .2s}
+.contact-chip:hover{background:rgba(255,255,255,.2)}
+.stats-row{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:1.5rem}
+.stat{text-align:center}
+.stat-num{font-size:1.8rem;font-weight:700;color:white}
+.stat-lbl{font-size:.75rem;color:var(--lb);text-transform:uppercase;letter-spacing:.5px}
+
+/* SECTION */
+.section{max-width:900px;margin:0 auto;padding:3rem 1.5rem 1.5rem}
+.section-title{font-size:1.4rem;font-weight:700;color:var(--db);padding-bottom:.5rem;border-bottom:3px solid var(--ab);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+.section-title .icon{font-size:1.2rem}
+
+/* CARD */
+.card{background:white;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;box-shadow:0 1px 6px rgba(0,0,0,.07);border-left:4px solid var(--ab);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.card-title{font-weight:700;color:var(--db);font-size:1rem;margin-bottom:.2rem}
+.card-org{color:var(--ab);font-size:.88rem;font-style:italic;margin-bottom:.15rem}
+.card-date{color:var(--mg);font-size:.82rem;margin-bottom:.6rem}
+.card ul{padding-left:1.1rem;font-size:.9rem}
+.card ul li{margin-bottom:.25rem;color:var(--txt)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.skill-card{background:white;border-radius:10px;padding:1rem 1.25rem;box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.skill-cat{font-weight:700;color:var(--db);font-size:.9rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.skill-tag{background:var(--lbg);color:var(--ab);border:1px solid var(--border);padding:2px 8px;border-radius:999px;font-size:.78rem;font-weight:500}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.8rem}
+.cert-card{background:white;border-radius:10px;padding:.85rem 1rem;box-shadow:0 1px 5px rgba(0,0,0,.07);display:flex;gap:.75rem;align-items:flex-start}
+.cert-icon{font-size:1.5rem;flex-shrink:0}
+.cert-title{font-weight:600;font-size:.88rem;color:var(--db);margin-bottom:.1rem}
+.cert-sub{font-size:.78rem;color:var(--mg)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.proj-card{background:white;border-radius:12px;padding:1.25rem;box-shadow:0 1px 6px rgba(0,0,0,.07);border-top:4px solid var(--te);transition:box-shadow .2s}
+.proj-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.proj-title{font-weight:700;color:var(--db);font-size:.95rem;margin-bottom:.2rem}
+.proj-sub{color:var(--te);font-size:.8rem;font-style:italic;margin-bottom:.5rem}
+.proj-desc{font-size:.88rem;color:var(--txt);line-height:1.5}
+
+/* LANG BAR */
+.lang-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.lang-name{min-width:80px;font-weight:600;color:var(--db)}
+.lang-bar{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.lang-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--ab),var(--te))}
+.lang-level{min-width:100px;font-size:.85rem;color:var(--mg);text-align:right}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}.hero h1{font-size:1.8rem}}
+
+/* FOOTER */
+footer{background:var(--db);color:var(--lb);text-align:center;padding:1.5rem;margin-top:3rem;font-size:.85rem}
+footer a{color:var(--lb);text-decoration:none}
+
+/* BADGES */
+.badge{display:inline-block;background:var(--gr);color:white;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:600;margin-left:.4rem}
+.badge.blue{background:var(--ab)}
+.badge.amber{background:#F59E0B}
+
+.hidden{display:none}
+
+/* SECTION DIVIDER */
+.section-divider{height:4px;background:linear-gradient(90deg,var(--ab),var(--te),var(--gr));margin:0}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Wajhee Uddin</div>
+  <div class="nav-links">
+    <a href="#about" class="t" data-en="About" data-de="Über mich">About</a>
+    <a href="#education" class="t" data-en="Education" data-de="Ausbildung">Education</a>
+    <a href="#experience" class="t" data-en="Experience" data-de="Erfahrung">Experience</a>
+    <a href="#projects" class="t" data-en="Projects" data-de="Projekte">Projects</a>
+    <a href="#skills" class="t" data-en="Skills" data-de="Kenntnisse">Skills</a>
+    <a href="#certs" class="t" data-en="Certifications" data-de="Zertifikate">Certifications</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="photo.png" alt="Wajhee Uddin" class="hero-photo" id="heroPhoto" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'130\' height=\'130\' viewBox=\'0 0 130 130\'%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'65\' fill=\'%232E6DA4\'/%3E%3Ccircle cx=\'65\' cy=\'50\' r=\'25\' fill=\'rgba(255,255,255,.5)\'/%3E%3Cellipse cx=\'65\' cy=\'105\' rx=\'40\' ry=\'28\' fill=\'rgba(255,255,255,.5)\'/%3E%3C/svg%3E'">
+    <h1>Wajhee Uddin</h1>
+    <p class="subtitle t" data-en="M.Sc. Medical Engineering · AI & Biomedical Systems · Medical Device Engineer" data-de="M.Sc. Medizintechnik · KI & Biomedizinische Systeme · Medizinprodukte-Ingenieur">M.Sc. Medical Engineering · AI & Biomedical Systems · Medical Device Engineer</p>
+    <div class="contact-row">
+      <a class="contact-chip" href="mailto:wajheeuddin1997@gmail.com">📧 wajheeuddin1997@gmail.com</a>
+      <a class="contact-chip" href="tel:+4917629832142">📞 +49 0176 29832142</a>
+      <a class="contact-chip" href="https://linkedin.com/in/wajheeuddin/" target="_blank">🔗 LinkedIn</a>
+      <span class="contact-chip">📍 Erlangen, Germany</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl t" data-en="Years Exp." data-de="Jahre Erfahrung">Years Exp.</div></div>
+      <div class="stat"><div class="stat-num">M.Sc.</div><div class="stat-lbl t" data-en="Medical Engineering" data-de="Medizintechnik">Medical Engineering</div></div>
+      <div class="stat"><div class="stat-num">2.2</div><div class="stat-lbl t" data-en="Master Grade" data-de="Master Note">Master Grade</div></div>
+      <div class="stat"><div class="stat-num">FDA</div><div class="stat-lbl t" data-en="510(k) Validated" data-de="510(k) Validiert">510(k) Validated</div></div>
+      <div class="stat"><div class="stat-num">MDR</div><div class="stat-lbl t" data-en="IEC 62304 Exp." data-de="IEC 62304 Erfahrung">IEC 62304 Exp.</div></div>
+    </div>
+  </div>
+</div>
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="section-title"><span class="icon">👤</span><span class="t" data-en="About Me" data-de="Über mich">About Me</span></div>
+  <div class="about-grid">
+    <div>
+      <p class="t" data-en="Medical Engineering graduate (M.Sc., FAU Erlangen-Nuremberg, Grade 2.2, March 2026) with 5+ years of experience spanning AI-driven biomedical image analysis, FDA/MDR-compliant software validation, clinical equipment maintenance, and mechatronic assembly research. I work at the intersection of engineering, healthcare and technology — from ICU ventilator maintenance to deep learning tissue segmentation pipelines and neuromechanical signal processing research." data-de="Absolvent der Medizintechnik (M.Sc., FAU Erlangen-Nürnberg, Note 2,2, März 2026) mit über 5 Jahren Erfahrung in KI-gestützter biomedizinischer Bildanalyse, FDA/MDR-konformer Softwarevalidierung, klinischer Gerätewartung und mechatronischer Montageforschung. Ich arbeite an der Schnittstelle von Ingenieurwesen, Gesundheitswesen und Technologie — von der Beatmungsgerätewartung bis hin zu Deep-Learning-Gewebesegmentierungspipelines und neuromechanischer Signalverarbeitungsforschung.">Medical Engineering graduate (M.Sc., FAU Erlangen-Nuremberg, Grade 2.2, March 2026) with 5+ years of experience spanning AI-driven biomedical image analysis, FDA/MDR-compliant software validation, clinical equipment maintenance, and mechatronic assembly research.</p>
+    </div>
+    <div>
+      <div style="background:var(--lbg);border-radius:10px;padding:1rem">
+        <div style="font-weight:700;color:var(--db);margin-bottom:.5rem" class="t" data-en="Quick Facts" data-de="Auf einen Blick">Quick Facts</div>
+        <div style="font-size:.88rem;line-height:1.8">
+          <div>🎂 <span class="t" data-en="Born" data-de="Geboren">Born</span>: 07 Jan 1997, Karachi</div>
+          <div>🌍 <span class="t" data-en="Nationality" data-de="Nationalität">Nationality</span>: Pakistani</div>
+          <div>📍 <span class="t" data-en="Based in" data-de="Wohnort">Based in</span>: Erlangen, Germany</div>
+          <div>🎓 FAU Erlangen-Nürnberg</div>
+          <div>💬 English C1 · German B1 · Urdu Native</div>
+          <div>📊 IELTS: 6.0 (B2) Academic</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section-divider"></div>
+<div class="section" id="education">
+  <div class="section-title"><span class="icon">🎓</span><span class="t" data-en="Education" data-de="Ausbildung">Education</span></div>
+
+  <div class="card" style="border-color:var(--gr)">
+    <div class="card-title">M.Sc. Medical Engineering – Medical Image & Data Processing <span class="badge">Grade 2.2</span></div>
+    <div class="card-org t" data-en="Friedrich-Alexander University Erlangen-Nuremberg (FAU), Germany" data-de="Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), Deutschland">Friedrich-Alexander University Erlangen-Nuremberg (FAU), Germany</div>
+    <div class="card-date">April 2022 – March 2026</div>
+    <ul>
+      <li class="t" data-en="Machine Learning for Engineers I — Grade 1.0 (best possible) | ML II — 1.7" data-de="Maschinelles Lernen für Ingenieure I — Note 1,0 (Bestleistung) | ML II — 1,7">Machine Learning for Engineers I — Grade 1.0 (best possible) | ML II — 1.7</li>
+      <li class="t" data-en="Key modules: Medical Image Processing, AI in Robotics (2.3), Neuromuscular Systems (2.0), MRI (2.7), Pattern Recognition (2.3), Advanced C++ (1.7)" data-de="Kernmodule: Medizinische Bildverarbeitung, KI in der Robotik (2,3), Neuromuskuläre Systeme (2,0), MRT (2,7), Mustererkennung (2,3), Fortgeschrittenes C++ (1,7)">Key modules: Medical Image Processing, AI in Robotics (2.3), Neuromuscular Systems (2.0), MRI (2.7), Pattern Recognition (2.3), Advanced C++ (1.7)</li>
+      <li class="t" data-en="Master Thesis (Grade 2.0): Development & Validation of a Spatially Adjustable Pneumatic Tendon Tapper — N-Squared Lab, AIBE, FAU" data-de="Masterarbeit (Note 2,0): Entwicklung & Validierung eines räumlich verstellbaren pneumatischen Tendon-Tappers — N-Squared Lab, AIBE, FAU">Master Thesis (Grade 2.0): Development & Validation of a Spatially Adjustable Pneumatic Tendon Tapper — N-Squared Lab, AIBE, FAU</li>
+      <li class="t" data-en="Projects: Flat-Panel CT Reconstruction · Stenosis Detection (DINO/YOLO/DETR) · Elastography Segmentation" data-de="Projekte: Flat-Panel-CT-Rekonstruktion · Stenoseerkennung (DINO/YOLO/DETR) · Elastographie-Segmentierung">Projects: Flat-Panel CT Reconstruction · Stenosis Detection (DINO/YOLO/DETR) · Elastography Segmentation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">B.E. Biomedical Engineering <span class="badge blue">CGPA 3.698/4.0</span></div>
+    <div class="card-org">NED University of Engineering & Technology, Karachi, Pakistan</div>
+    <div class="card-date">December 2015 – December 2019</div>
+    <ul>
+      <li class="t" data-en="Top grades in DSP (A), Biomedical Imaging (A), Bioinstrumentation (A), Computer Programming (A)" data-de="Spitzennoten in DSV (A), Biomedizinische Bildgebung (A), Bioinstrumentierung (A), Computerprogrammierung (A)">Top grades in DSP (A), Biomedical Imaging (A), Bioinstrumentation (A), Computer Programming (A)</li>
+      <li class="t" data-en="Final Year Project: Human Activity Recognition using ML — 5-IMU wireless fall prevention system" data-de="Abschlussarbeit: Erkennung menschlicher Aktivitäten via ML — 5-IMU drahtloses Sturzerkenungssystem">Final Year Project: Human Activity Recognition using ML — 5-IMU wireless fall prevention system</li>
+      <li class="t" data-en="Medium of instruction: English (certified by NED University)" data-de="Unterrichtssprache: Englisch (bescheinigt durch NED University)">Medium of instruction: English (certified by NED University)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-divider"></div>
+<div class="section" id="experience">
+  <div class="section-title"><span class="icon">💼</span><span class="t" data-en="Experience" data-de="Berufserfahrung">Experience</span></div>
+
+  <div class="card" style="border-color:var(--gr)">
+    <div class="card-title t" data-en="Master's Thesis Researcher — Neuromechanical Signal Processing" data-de="Masterarbeit – Neuromechanische Signalverarbeitung">Master's Thesis Researcher — Neuromechanical Signal Processing</div>
+    <div class="card-org">N-Squared Lab, AIBE, FAU Erlangen-Nuremberg</div>
+    <div class="card-date">August 2025 – March 2026</div>
+    <ul>
+      <li class="t" data-en="Designed & validated spatially adjustable pneumatic Tendon Tapping System for knee joint neuromechanical stimulation" data-de="Entwicklung & Validierung eines räumlich verstellbaren pneumatischen Tendon-Tappers für neuromechanische Stimulation am Kniegelenk">Designed & validated spatially adjustable pneumatic Tendon Tapping System for knee joint neuromechanical stimulation</li>
+      <li class="t" data-en="Multi-sensor EMG, force & motion data pipelines (signal filtering, feature extraction, event detection) in Python & MATLAB" data-de="Mehrsensorige EMG-, Kraft- & Bewegungsdatenpipelines (Signalfilterung, Merkmalsextraktion, Ereigniserkennung) in Python & MATLAB">Multi-sensor EMG, force & motion data pipelines in Python & MATLAB</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title t" data-en="Student Assistant (HiWi) — Image Processing, Robotics & Assembly" data-de="Studentische Hilfskraft (HiWi) — Bildverarbeitung, Robotik & Montage">Student Assistant (HiWi) — Image Processing, Robotics & Assembly</div>
+    <div class="card-org">FAPS Lab, FAU Erlangen-Nuremberg</div>
+    <div class="card-date">March 2025 – June 2025</div>
+    <ul>
+      <li class="t" data-en="Implemented Shear Wave Elastography tissue segmentation pipeline (PyTorch U-Net, OpenCV)" data-de="Implementierung einer Shear-Wave-Elastographie-Gewebesegmentierungspipeline (PyTorch U-Net, OpenCV)">Implemented Shear Wave Elastography tissue segmentation pipeline (PyTorch U-Net, OpenCV)</li>
+      <li class="t" data-en="Built assembly demonstrator: PCB soldering, 3D-print construction, mechanical machining, control cabinet (Arbeitszeugnis, Prof. Franke)" data-de="Aufbau eines Montagedemonstrators: Löten, 3D-Druck, mechanische Bearbeitung, Schaltschrankaufbau (Arbeitszeugnis, Prof. Franke)">Built assembly demonstrator: PCB soldering, 3D-print construction, mechanical machining, control cabinet</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title t" data-en="Software Developer & QA Officer — Medical Device Software" data-de="Softwareentwickler & QS-Beauftragter — Medizinproduktsoftware">Software Developer & QA Officer — Medical Device Software</div>
+    <div class="card-org">Medical Templates AG, Munich – Zurich</div>
+    <div class="card-date">July 2023 – February 2024</div>
+    <ul>
+      <li class="t" data-en="FDA 510(k) software validation for image-guided CT surgical navigation (MDR, IEC 62304)" data-de="FDA 510(k)-Softwarevalidierung für bildgestützte CT-chirurgische Navigation (MDR, IEC 62304)">FDA 510(k) software validation for image-guided CT surgical navigation (MDR, IEC 62304)</li>
+      <li class="t" data-en="V&V documentation: requirements, test protocols, risk analyses, traceability matrices — reference from CTO Michael Peyer" data-de="V&V-Dokumentation: Anforderungen, Testprotokolle, Risikoanalysen, Rückverfolgbarkeitsmatrizen — Referenz von CTO Michael Peyer">V&V documentation: requirements, test protocols, risk analyses, traceability matrices</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title t" data-en="Biomedical Engineer — Clinical Equipment Maintenance (COVID-19 Unit)" data-de="Biomedizintechniker — Klinische Gerätewartung (COVID-19-Unit)">Biomedical Engineer — Clinical Equipment Maintenance (COVID-19 Unit)</div>
+    <div class="card-org">Indus Hospital & Health Network, Karachi, Pakistan</div>
+    <div class="card-date">January 2021 – March 2022</div>
+    <ul>
+      <li class="t" data-en="Maintained ICU devices: ventilators, anaesthesia, infusion systems, dialysis, monitoring — safety testing & documentation" data-de="Wartung von ICU-Geräten: Beatmung, Anästhesie, Infusion, Dialyse, Monitoring — Sicherheitstests & Dokumentation">Maintained ICU devices: ventilators, anaesthesia, infusion systems, dialysis, monitoring</li>
+      <li class="t" data-en="COVID-19 Warrior Award for extraordinary service (CEO, Indus Hospital)" data-de="COVID-19-Warrior-Auszeichnung für außergewöhnlichen Dienst (CEO, Indus Hospital)">COVID-19 Warrior Award for extraordinary service</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title t" data-en="Junior Service Engineer — Radiology Equipment" data-de="Junior-Servicetechniker — Radiologische Geräte">Junior Service Engineer — Radiology Equipment</div>
+    <div class="card-org">BIOS – Serving Humanity with Technology, Karachi</div>
+    <div class="card-date">September 2019 – January 2021</div>
+    <ul>
+      <li class="t" data-en="Installation & maintenance: Sonoscape ultrasound, Stephanix X-ray & fluoroscopy, Planmed mammography, flat-panel DR" data-de="Installation & Wartung: Sonoscape Ultraschall, Stephanix Röntgen & Fluoroskopie, Planmed Mammographie, Flachbilddetektor">Installation & maintenance: Sonoscape ultrasound, Stephanix X-ray, Planmed mammography, flat-panel DR</li>
+      <li class="t" data-en="Certified Sonoscape Service Engineer (VISTA, PAD, GAIA)" data-de="Zertifizierter Sonoscape-Servicetechniker (VISTA, PAD, GAIA)">Certified Sonoscape Service Engineer (VISTA, PAD, GAIA)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section-divider"></div>
+<div class="section" id="projects">
+  <div class="section-title"><span class="icon">🔬</span><span class="t" data-en="Projects" data-de="Projekte">Projects</span></div>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-title t" data-en="Pneumatic Tendon Tapper" data-de="Pneumatischer Tendon-Tapper">Pneumatic Tendon Tapper</div>
+      <div class="proj-sub t" data-en="Master Thesis · FAU · 2025–2026" data-de="Masterarbeit · FAU · 2025–2026">Master Thesis · FAU · 2025–2026</div>
+      <div class="proj-desc t" data-en="Precision neuromechanical stimulation device. Full hardware design, pneumatic control, multi-sensor EMG/force/motion pipeline, Python/MATLAB. Grade: 2.0." data-de="Präzisionsgerät zur neuromechanischen Stimulation. Vollständiges Hardwaredesign, pneumatische Steuerung, Mehrsensor-Pipeline. Note: 2,0.">Precision neuromechanical stimulation device. Full hardware design, pneumatic control, EMG/force/motion pipeline. Grade: 2.0.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-title t" data-en="Elastography Tissue Segmentation" data-de="Elastographie-Gewebesegmentierung">Elastography Tissue Segmentation</div>
+      <div class="proj-sub t" data-en="HiWi · FAPS Lab, FAU · 2025" data-de="HiWi · FAPS Lab, FAU · 2025">HiWi · FAPS Lab, FAU · 2025</div>
+      <div class="proj-desc t" data-en="End-to-end pipeline for fat/muscle/tendon segmentation in Shear Wave Elastography. Classical CV vs. U-Net (PyTorch). IoU/Dice evaluation." data-de="End-to-End-Pipeline zur Fett-/Muskel-/Sehnen-Segmentierung. Klassische BV vs. U-Net (PyTorch). IoU/Dice-Bewertung.">End-to-end pipeline for tissue segmentation in Shear Wave Elastography. Classical CV vs. U-Net (PyTorch). IoU/Dice evaluation.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-title t" data-en="Stenosis Detection — DINO/YOLO/DETR" data-de="Stenoseerkennung — DINO/YOLO/DETR">Stenosis Detection — DINO/YOLO/DETR</div>
+      <div class="proj-sub t" data-en="Pattern Recognition Lab · FAU · 2024" data-de="Mustererkennung-Lab · FAU · 2024">Pattern Recognition Lab · FAU · 2024</div>
+      <div class="proj-desc t" data-en="Benchmarked Grounding DINO, YOLO, DINO-DETR on ARCADE coronary artery stenosis dataset (MMDetection). COCO metrics." data-de="Benchmarking von Grounding DINO, YOLO, DINO-DETR auf dem ARCADE-Koronararterien-Datensatz (MMDetection). COCO-Metriken.">Benchmarked transformer-based detection models on ARCADE coronary artery stenosis dataset. COCO metrics.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-title t" data-en="Flat-Panel CT Reconstruction" data-de="Flat-Panel-CT-Rekonstruktion">Flat-Panel CT Reconstruction</div>
+      <div class="proj-sub t" data-en="Pattern Recognition Lab · FAU · 2024" data-de="Mustererkennung-Lab · FAU · 2024">Pattern Recognition Lab · FAU · 2024</div>
+      <div class="proj-desc t" data-en="Iterative CT reconstruction for flat-panel detectors. Limited-angle low-dose projections, sinogram processing, back-projection optimisation." data-de="Iterative CT-Rekonstruktion für Flachbilddetektoren. Begrenzte Winkel-/Niedrigdosisprojektionen, Sinogramm-Verarbeitung.">Iterative CT reconstruction for flat-panel detectors. Limited-angle projections, sinogram processing.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-title t" data-en="Human Activity Recognition via ML" data-de="Erkennung menschlicher Aktivitäten via ML">Human Activity Recognition via ML</div>
+      <div class="proj-sub t" data-en="Bachelor Thesis · NED University · 2019" data-de="Bachelorarbeit · NED University · 2019">Bachelor Thesis · NED University · 2019</div>
+      <div class="proj-desc t" data-en="5-IMU wireless fall prevention system for elderly. ML classification (SVM, RF, Neural Networks) for continuous posture tracking." data-de="5-IMU drahtloses Sturzerkenungssystem für ältere Menschen. ML-Klassifikation zur kontinuierlichen Haltungsverfolgung.">5-IMU wireless fall prevention system for elderly using ML classification.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-title t" data-en="Wireless O.T. Table Remote" data-de="Drahtlose OP-Tisch-Fernbedienung">Wireless O.T. Table Remote</div>
+      <div class="proj-sub t" data-en="Indus Hospital · 2021" data-de="Indus Hospital · 2021">Indus Hospital · 2021</div>
+      <div class="proj-desc t" data-en="Backup wireless positioning system for surgical tables. Li-ion battery, status display, radio control — designed to prevent intraoperative positioning injuries." data-de="Backup-drahtloses Positionierungssystem für Operationstische. Li-Ionen-Akku, Statusanzeige, Funksteuerung.">Backup wireless positioning system for surgical tables. Li-ion powered, radio control.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section-divider"></div>
+<div class="section" id="skills">
+  <div class="section-title"><span class="icon">⚙️</span><span class="t" data-en="Technical Skills" data-de="Technische Kenntnisse">Technical Skills</span></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-cat">💻 <span class="t" data-en="Programming" data-de="Programmierung">Programming</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">MATLAB</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Rust</span><span class="skill-tag">Git</span><span class="skill-tag">Linux</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">🤖 AI / ML</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">scikit-learn</span><span class="skill-tag">OpenCV</span><span class="skill-tag">U-Net</span><span class="skill-tag">DINO</span><span class="skill-tag">YOLO</span><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">🏥 <span class="t" data-en="Medical Imaging" data-de="Medizinische Bildgebung">Medical Imaging</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag">CT Reconstruction</span><span class="skill-tag">MRI</span><span class="skill-tag">Ultrasound</span><span class="skill-tag">Elastography</span><span class="skill-tag">EMG Processing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">📋 <span class="t" data-en="Regulatory" data-de="Regulatorik">Regulatory</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag">MDR 2017/745</span><span class="skill-tag">IEC 62304</span><span class="skill-tag">ISO 13485</span><span class="skill-tag">FDA 510(k)</span><span class="skill-tag">V&V Testing</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">🔧 <span class="t" data-en="Mechatronics" data-de="Mechatronik">Mechatronics</span></div>
+      <div class="skill-tags">
+        <span class="skill-tag">PCB Soldering</span><span class="skill-tag">3D Printing</span><span class="skill-tag">Fusion-360</span><span class="skill-tag">AutoCAD</span><span class="skill-tag">Altium</span><span class="skill-tag">Robotics</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-cat">🖥️ Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MS Office</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">Jira</span><span class="skill-tag">Confluence</span><span class="skill-tag">GitHub</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem">
+    <div class="section-title" style="font-size:1.1rem"><span class="icon">🌐</span><span class="t" data-en="Languages" data-de="Sprachen">Languages</span></div>
+    <div class="lang-row"><div class="lang-name">English</div><div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div><div class="lang-level">C1 — Proficient</div></div>
+    <div class="lang-row"><div class="lang-name">German</div><div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div><div class="lang-level t" data-en="B1 — Working" data-de="B1 — Arbeitsniveau">B1 — Working</div></div>
+    <div class="lang-row"><div class="lang-name">Urdu</div><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div><div class="lang-level t" data-en="Native" data-de="Muttersprache">Native</div></div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="section-divider"></div>
+<div class="section" id="certs">
+  <div class="section-title"><span class="icon">🏆</span><span class="t" data-en="Certifications & Awards" data-de="Zertifikate & Auszeichnungen">Certifications & Awards</span></div>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon">🏆</div><div><div class="cert-title t" data-en="1st Prize — ELECTRO-COP Competition" data-de="1. Preis — ELECTRO-COP-Wettbewerb">1st Prize — ELECTRO-COP Competition</div><div class="cert-sub">NED University · Aug 2018</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🎓</div><div><div class="cert-title t" data-en="Certified Sonoscape Service Engineer" data-de="Zertifizierter Sonoscape-Servicetechniker">Certified Sonoscape Service Engineer</div><div class="cert-sub">VISTA, PAD, GAIA · Dec 2020</div></div></div>
+    <div class="cert-card"><div class="cert-icon">📋</div><div><div class="cert-title t" data-en="Introduction to Electrosurgery — CPD" data-de="Einführung in die Elektrochirurgie — CPD">Introduction to Electrosurgery — CPD</div><div class="cert-sub">Rigel Medical · Mar 2026</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🏥</div><div><div class="cert-title t" data-en="COVID-19 Warrior Award" data-de="COVID-19-Warrior-Auszeichnung">COVID-19 Warrior Award</div><div class="cert-sub">Indus Hospital · Aug 2021</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🏥</div><div><div class="cert-title t" data-en="Mechanical Ventilators for COVID-19" data-de="Beatmungsgeräte für COVID-19">Mechanical Ventilators for COVID-19</div><div class="cert-sub">Harvard Medical School · Mar 2020</div></div></div>
+    <div class="cert-card"><div class="cert-icon">💻</div><div><div class="cert-title">Python for Everybody (5 courses)</div><div class="cert-sub">Univ. Michigan / Coursera · Jun 2020</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-title">AI For Everyone</div><div class="cert-sub">DeepLearning.AI / Coursera · Apr 2020</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🔌</div><div><div class="cert-title">Arduino Platform & C Programming</div><div class="cert-sub">UC Irvine / Coursera · Apr 2020</div></div></div>
+    <div class="cert-card"><div class="cert-icon">📡</div><div><div class="cert-title t" data-en="Ultrasound & CT Examination — COVID-19" data-de="Ultraschall & CT-Untersuchung — COVID-19">Ultrasound & CT Examination — COVID-19</div><div class="cert-sub">ISRRT · Jul 2020</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🔬</div><div><div class="cert-title t" data-en="Nanotechnology in Cardiovascular Diseases" data-de="Nanotechnologie bei Herz-Kreislauf-Erkrankungen">Nanotechnology in Cardiovascular Diseases</div><div class="cert-sub">UKE Erlangen · Grade 1.7 · WS 2022/23</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🎓</div><div><div class="cert-title t" data-en="Shimadzu X-Ray Service Training" data-de="Shimadzu-Röntgen-Servicetraining">Shimadzu X-Ray Service Training</div><div class="cert-sub">Hoora Pharma / Shimadzu · Nov 2021</div></div></div>
+    <div class="cert-card"><div class="cert-icon">📋</div><div><div class="cert-title t" data-en="Infusion Device Testing" data-de="Prüfung von Infusionsgeräten">Infusion Device Testing</div><div class="cert-sub">Rigel Medical · Feb 2022</div></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>Wajhee Uddin — M.Sc. Medical Engineering · FAU Erlangen-Nuremberg</p>
+  <p style="margin-top:.4rem"><a href="mailto:wajheeuddin1997@gmail.com">wajheeuddin1997@gmail.com</a> · <a href="https://linkedin.com/in/wajheeuddin/">LinkedIn</a></p>
+  <p style="margin-top:.4rem;font-size:.75rem;opacity:.7">© 2026 Wajhee Uddin · Erlangen, Germany</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll(`.lang-btn`).forEach(b => { if((lang==='en'&&b.textContent==='EN')||(lang==='de'&&b.textContent==='DE')) b.classList.add('active'); });
+  document.querySelectorAll('.t').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if(val) el.textContent = val;
+  });
+  document.documentElement.lang = lang;
+}
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
